@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sakshi Apankar | Frontend Developer</title>
+  <meta name="description" content="Sakshi Apankar - Frontend Developer Portfolio showcasing projects, skills, and resume.">
+  <meta name="keywords" content="Sakshi Apankar, Web Developer, Frontend Developer, Java, HTML, CSS, Portfolio">
+  <meta name="author" content="Sakshi Apankar">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h2 class="logo">Sakshi Apankar</h2>
+      <div class="hamburger" id="hamburger">
+  ☰
+</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="typewriter highlight">Sakshi Apankar</span></h1>
+      <p>Aspiring <span class="highlight">Software Developer</span> | Java | Frontend Enthusiast</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      I'm a Computer Engineering Graduate with a passion for front-end development.
+      I enjoy building projects that are useful, clean, and visually appealing.
+    </p>
+    <a href="assets/Sakshi_Apankar_Resume.pdf" download class="resume-btn">Download Resume</a>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>💻 Java, Python, C, C++</li>
+      <li>🌐 HTML, CSS, JavaScript</li>
+      <li>⚙️ MySQL, Firebase</li>
+      <li>🧠 Problem Solving</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
+    <button class="add-project-btn" onclick="toggleProjectForm()">➕ Add Project</button>
+
+<div class="project-form-container" id="projectForm">
+  <input type="text" id="projectTitle" placeholder="Project Title" required>
+  <textarea id="projectDesc" placeholder="Project Description" required></textarea>
+  <input type="url" id="projectLink" placeholder="Project Link (GitHub or Live)" required>
+  <button onclick="addProjectCard()">Add Project</button>
+</div>
+
+    <div class="projects-container">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <h3>Conversational Legal Advisor</h3>
+        <p>An AI-based chat app for real-time legal help using React, FastAPI, and LegalBERT.</p>
+        <a href="https://github.com/sakshiapankar/conversational-legal-advisor" target="_blank">View Project</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h3>PG Navigator</h3>
+        <p>A platform to search PG accommodations in 4 cities with PHP and MySQL integration.</p>
+        <a href="https://github.com/sakshiapankar/pg-navigator" target="_blank">View Project</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>This personal portfolio built using HTML, CSS, and JavaScript.</p>
+        <a href="#" target="_blank">View Live</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: sakshiapankar20@gmail.com</p>
+    <p>
+      <a href="https://github.com/sakshiapankar20" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/sakshi-apankar-3b782b269/" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Sakshi Apankar | Made with 💙</p>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll to top
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollBtn");
+      btn.style.display =
+        document.body.scrollTop > 100 || document.documentElement.scrollTop > 100
+          ? "block"
+          : "none";
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Typewriter Effect
+    const phrases = ["Sakshi Apankar", "Frontend Developer", "Java Enthusiast"];
+    let i = 0, j = 0, isDeleting = false;
+
+    function type() {
+      const typewriter = document.querySelector(".typewriter");
+      const current = phrases[i];
+
+      if (!isDeleting) {
+        typewriter.innerText = current.substring(0, j++);
+        if (j > current.length) {
+          isDeleting = true;
+          setTimeout(type, 1200);
+          return;
+        }
+      } else {
+        typewriter.innerText = current.substring(0, j--);
+        if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      }
+      setTimeout(type, isDeleting ? 60 : 100);
+    }
+    type();
+  </script>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+
+<!-- add project -->
+ <script>
+  function toggleProjectForm() {
+    const form = document.getElementById("projectForm");
+    form.style.display = form.style.display === "flex" ? "none" : "flex";
+    form.style.flexDirection = "column";
+  }
+
+  function addProjectCard() {
+    const title = document.getElementById("projectTitle").value;
+    const desc = document.getElementById("projectDesc").value;
+    const link = document.getElementById("projectLink").value;
+
+    if (!title || !desc || !link) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    const container = document.querySelector(".projects-container");
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+      <h3>${title}</h3>
+      <p>${desc}</p>
+      <a href="${link}" target="_blank">View Project</a>
+    `;
+    container.appendChild(card);
+
+    // Clear form
+    document.getElementById("projectTitle").value = "";
+    document.getElementById("projectDesc").value = "";
+    document.getElementById("projectLink").value = "";
+
+    // Hide form
+    toggleProjectForm();
+  }
+</script>
+
+
+</body>
+</html>
